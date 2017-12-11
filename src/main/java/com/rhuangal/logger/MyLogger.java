@@ -25,6 +25,9 @@ public class MyLogger {
     }
 
     public static void LogMessage(LevelLogger l, String msg) {
+        if (msg == null || msg.trim().length() == 0) {
+            throw new Error("Message can't be empty.");
+        }
         switch (l) {
             case MESSAGE:
                 message(msg, l);
